@@ -1,185 +1,432 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wedding Invitation - Erna & Reza</title>
-  <meta name="description" content="Wedding Invitation of Erna & Reza, 21 December 2025">
-
-  <!-- Preload assets -->
-  <link rel="preload" as="image" href="images/COVER-1.jpg">
-  <link rel="preload" as="audio" href="media/Bernaung (From Setetes Embun Cinta Niyala).mp3">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/reset.css" media="all">
-  <link rel="stylesheet" href="css/frontend.css" media="all">
-  <link rel="stylesheet" href="css/theme.css" media="all">
-  <link rel="stylesheet" href="css/style.css" media="all">
-  <link rel="stylesheet" href="css/all.min.css" media="all">
-  <link rel="stylesheet" href="css/animate.css" media="all">
-  <link rel="stylesheet" href="css/zoomIn.min.css" media="all">
-  <link rel="stylesheet" href="css/fadeInUp.min.css" media="all">
-  <link rel="stylesheet" href="css/fadeInDown.min.css" media="all">
-  <link rel="stylesheet" href="css/swiper.min.css" media="all">
-  <link rel="stylesheet" href="css/lightbox.min.css" media="all">
-  <link rel="stylesheet" href="css/widget-countdown.min.css" media="all">
-  <link rel="stylesheet" href="css/widget-gallery.min.css" media="all">
-
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #fff url('images/BG-UTAMA.jpg') no-repeat center center fixed;
-      background-size: cover;
-    }
-    header.hero {
-      position: relative;
-      text-align: center;
-      color: white;
-    }
-    header.hero img {
-      width: 100%;
-      height: auto;
-    }
-    header.hero .overlay {
-      position: absolute;
-      top:0;left:0;width:100%;height:100%;
-      background: rgba(0,0,0,0.4);
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      flex-direction:column;
-    }
-    .countdown {
-      font-size:2rem;
-      margin:20px 0;
-    }
-    section {
-      padding:60px 20px;
-      text-align:center;
-    }
-    footer {
-      background:#222;
-      color:#fff;
-      padding:20px;
-      text-align:center;
-    }
-    .deco {
-      max-width:200px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan - Erna & Reza</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        .font-dancing {
+            font-family: 'Dancing Script', cursive;
+        }
+        /* Custom animation for fade-in effect */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in-section {
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+        }
+        .music-icon-playing {
+            animation: spin 3s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
 </head>
-<body>
+<body class="bg-[#F7F2E8] text-[#4A4A4A]">
 
-  <!-- Hero -->
-  <header class="hero">
-    <img src="images/COVER-1.jpg" alt="Cover" loading="eager">
-    <div class="overlay wow zoomIn">
-      <h1>Wedding of Erna & Reza</h1>
-      <p>21 December 2025</p>
-      <img src="images/bunga-jawa-el.png" alt="Decorative flower" class="deco" loading="lazy">
+    <!-- Audio Player -->
+    <audio id="background-music" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung elemen audio.
+    </audio>
+
+    <!-- Tombol Kontrol Musik -->
+    <div id="music-control" class="hidden fixed bottom-5 right-5 z-50">
+        <button onclick="toggleMusic()" class="w-12 h-12 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center text-[#6D8B74] shadow-lg">
+            <svg id="music-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        </button>
     </div>
-  </header>
 
-  <!-- Countdown -->
-  <section id="countdown">
-    <h2 class="wow fadeInDown">Countdown</h2>
-    <div id="timer" class="countdown"></div>
-  </section>
-
-  <!-- Video -->
-  <section class="video-section text-center">
-    <h2 class="wow fadeInUp">Video</h2>
-    <div class="container">
-      <video id="wedding-video" autoplay muted loop playsinline preload="auto"
-             poster="images/COVER-1.jpg" loading="lazy" width="100%" controls>
-        <source src="media/Video-Art-Modern-Java-Compress.mp4" type="video/mp4">
-        Browser Anda tidak mendukung video tag.
-      </video>
-      <button id="playButton" style="display:none; margin-top:10px;" class="btn btn-primary">
-        ▶ Play Video
-      </button>
+    <!-- Cover Undangan -->
+    <div id="cover" class="fixed inset-0 bg-cover bg-center bg-no-repeat flex flex-col justify-center items-center text-center text-white z-50" style="background-image: url('https://images.unsplash.com/photo-1523438994511-26b01b5594f7?q=80&w=1887&auto=format&fit=crop');">
+        <div class="absolute inset-0 bg-black/50"></div>
+        <div class="relative z-10 p-8 flex flex-col items-center">
+            <h2 class="font-playfair text-xl tracking-wider">The Wedding Of</h2>
+            <h1 class="font-dancing text-6xl md:text-8xl my-4">Reza & Erna</h1>
+            <p class="mt-8 mb-2">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+            <p id="guest-name" class="text-2xl font-bold bg-white/20 px-4 py-2 rounded-lg">Nama Tamu</p>
+            <button id="open-invitation" class="mt-8 bg-[#6D8B74] hover:bg-[#557153] text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12c0-4.4-3.6-8-8-8s-8 3.6-8 8 3.6 8 8 8 8-3.6 8-8Z"/><path d="m9.5 14.5 5-2.5-5-2.5v5Z"/></svg>
+                Buka Undangan
+            </button>
+        </div>
     </div>
-  </section>
 
-  <!-- Acara -->
-  <section id="acara">
-    <h2 class="wow fadeInDown">Acara</h2>
-    <p><strong>Akad Nikah</strong><br>21 December 2025, 09:00 WIB<br>Gedung Widaria Kencana Sukabumi</p>
-    <p><strong>Resepsi</strong><br>21 December 2025, 11:00 WIB<br>Gedung Widaria Kencana Sukabumi</p>
-  </section>
+    <!-- Konten Utama (Awalnya tersembunyi) -->
+    <main id="main-content" class="hidden">
+        <!-- Hero Section -->
+        <section class="h-screen bg-cover bg-center bg-no-repeat flex flex-col justify-center items-center text-center text-white relative" style="background-image: url('https://images.unsplash.com/photo-1523438994511-26b01b5594f7?q=80&w=1887&auto=format&fit=crop');">
+            <div class="absolute inset-0 bg-black/50"></div>
+            <div class="relative z-10 fade-in-section">
+                <h2 class="font-playfair text-2xl tracking-wider">We Are Getting Married</h2>
+                <h1 class="font-dancing text-7xl md:text-9xl my-4">Reza & Erna</h1>
+                <p class="text-xl">Minggu, 21 Desember 2025</p>
+            </div>
+        </section>
 
-  <!-- Gallery -->
-  <section id="gallery">
-    <h2 class="wow fadeInUp">Gallery</h2>
-    <div class="gallery">
-      <img src="images/lk.jpg" alt="Foto 1" loading="lazy">
-      <img src="images/wn.jpg" alt="Foto 2" loading="lazy">
-      <img src="images/s_DSC9082.jpg" alt="Foto 3" loading="lazy">
-    </div>
-  </section>
+        <!-- Mempelai -->
+        <section class="py-20 px-4 text-center">
+            <div class="container mx-auto max-w-4xl fade-in-section">
+                 <h2 class="font-dancing text-5xl text-[#6D8B74] mb-4">Assalamu'alaikum warahmatullah wabarakatuh</h2>
+                <p class="max-w-3xl mx-auto mb-12">Dengan memohon Rahmat & Ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan putra dan putri kami.</p>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="flex flex-col items-center">
+                        <img src="https://placehold.co/250x250/E8D5C4/6D8B74?text=Reza" alt="Mempelai Pria" class="w-48 h-48 rounded-full object-cover shadow-lg mb-4">
+                        <h3 class="font-dancing text-4xl text-[#6D8B74]">Reza Hafiz Pranajaya, S.Kel</h3>
+                        <p class="mt-2 font-semibold">Putra Pertama dari Pasangan</p>
+                        <p>Bapak Agung Prasojo & Ibu Estulah Jayati</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <img src="https://placehold.co/250x250/E8D5C4/6D8B74?text=Erna" alt="Mempelai Wanita" class="w-48 h-48 rounded-full object-cover shadow-lg mb-4">
+                        <h3 class="font-dancing text-4xl text-[#6D8B74]">Erna Putri Utami, S.Si</h3>
+                        <p class="mt-2 font-semibold">Putri Pertama dari Pasangan</p>
+                        <p>Bapak Asep Sudrajat & Ibu Sari Ningrum</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Detail Acara -->
+        <section id="acara" class="py-20 px-4 bg-cover bg-center" style="background-image: url('https://www.toptal.com/designers/subtlepatterns/uploads/leaves.png');">
+            <div class="container mx-auto max-w-4xl text-center fade-in-section">
+                <h2 class="font-dancing text-5xl text-[#6D8B74] mb-12">Detail Acara</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white/80 backdrop-blur-sm p-8 rounded-lg shadow-lg">
+                        <h3 class="font-playfair text-3xl font-bold text-[#557153]">Akad Nikah</h3>
+                        <p class="mt-4 mb-2 text-lg font-semibold">Minggu, 21 Desember 2025</p>
+                        <p>Pukul 09:00 - 11:00 WIB</p>
+                        <p class="mt-4 font-semibold">Gedung Widaria Kencana Sukabumi</p>
+                        <p>Jl. Lkr. Sel., Sukakarya, Kec. Warudoyong, Kota Sukabumi, Jawa Barat 43135</p>
+                    </div>
+                    <div class="bg-white/80 backdrop-blur-sm p-8 rounded-lg shadow-lg">
+                        <h3 class="font-playfair text-3xl font-bold text-[#557153]">Resepsi</h3>
+                        <p class="mt-4 mb-2 text-lg font-semibold">Minggu, 21 Desember 2025</p>
+                        <p>Pukul 11:00 - 14:00 WIB</p>
+                        <p class="mt-4 font-semibold">Gedung Widaria Kencana Sukabumi</p>
+                        <p>Jl. Lkr. Sel., Sukakarya, Kec. Warudoyong, Kota Sukabumi, Jawa Barat 43135</p>
+                    </div>
+                </div>
+                <!-- Countdown Timer -->
+                <div id="countdown" class="mt-12 text-2xl font-bold grid grid-cols-4 gap-4 max-w-lg mx-auto">
+                    <div class="bg-white/80 p-4 rounded-lg shadow-md"><span id="days">00</span><p class="text-sm font-normal">Hari</p></div>
+                    <div class="bg-white/80 p-4 rounded-lg shadow-md"><span id="hours">00</span><p class="text-sm font-normal">Jam</p></div>
+                    <div class="bg-white/80 p-4 rounded-lg shadow-md"><span id="minutes">00</span><p class="text-sm font-normal">Menit</p></div>
+                    <div class="bg-white/80 p-4 rounded-lg shadow-md"><span id="seconds">00</span><p class="text-sm font-normal">Detik</p></div>
+                </div>
+            </div>
+        </section>
 
-  <!-- Guestbook -->
-  <section id="guestbook">
-    <h2 class="wow fadeInDown">Guestbook</h2>
-    <form>
-      <input type="text" placeholder="Nama" required><br><br>
-      <textarea placeholder="Ucapan" required></textarea><br><br>
-      <button type="submit">Kirim</button>
-    </form>
-  </section>
+        <!-- Peta Lokasi -->
+        <section class="py-20 px-4 text-center">
+             <div class="container mx-auto max-w-4xl fade-in-section">
+                 <h2 class="font-dancing text-5xl text-[#6D8B74] mb-8">Peta Lokasi</h2>
+                 <div class="w-full aspect-video rounded-lg shadow-lg overflow-hidden">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.6566567505242!2d106.89930487499659!3d-6.931577693068283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6837dd201b96df%3A0x7654148d7d645730!2sGedung%20Widaria%20Kencana%20Sukabumi!5e0!3m2!1sid!2sid!4v1759907495004!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                 </div>
+                 <a href="https://maps.app.goo.gl/wYgK889MRWU26DY87" target="_blank" class="inline-block mt-8 bg-[#6D8B74] hover:bg-[#557153] text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105">
+                     Buka di Google Maps
+                </a>
+            </div>
+        </section>
+        
+        <!-- Hadiah -->
+        <section id="hadiah" class="py-20 px-4 bg-white/50">
+            <div class="container mx-auto max-w-4xl text-center fade-in-section">
+                <h2 class="font-dancing text-5xl text-[#6D8B74] mb-4">Kirim Hadiah</h2>
+                <p class="max-w-2xl mx-auto mb-12">Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika memberi adalah ungkapan tanda kasih, Anda dapat memberi kado secara cashless.</p>
+                <div class="grid md:grid-cols-2 gap-8 text-left">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="font-semibold text-lg flex items-center gap-2"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Bank_Mandiri_logo.svg/2560px-Bank_Mandiri_logo.svg.png" class="h-6" alt="Logo Mandiri"> Bank Mandiri</h3>
+                        <p class="mt-2 text-gray-500">a.n. Erna Putri Utami</p>
+                        <p id="mandiri-account" class="text-xl font-bold">1270010070157</p>
+                        <button onclick="copyToClipboard('mandiri-account', this)" class="mt-2 text-sm bg-gray-200 px-3 py-1 rounded-full">Salin Nomor</button>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="font-semibold text-lg flex items-center gap-2"><img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg" class="h-5" alt="Logo DANA"> DANA</h3>
+                        <p class="mt-2 text-gray-500">a.n. Reza Hafiz Pranajaya</p>
+                        <p id="dana-account" class="text-xl font-bold">085695496600</p>
+                        <button onclick="copyToClipboard('dana-account', this)" class="mt-2 text-sm bg-gray-200 px-3 py-1 rounded-full">Salin Nomor</button>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- Maps -->
-  <section id="maps">
-    <h2 class="wow fadeInUp">Lokasi</h2>
-    <a href="https://maps.app.goo.gl/55QcRPUgvredv2r59"
-       target="_blank" class="btn btn-success">📍 Buka di Google Maps</a>
-  </section>
+        <!-- RSVP -->
+        <section class="py-20 px-4">
+            <div class="container mx-auto max-w-2xl text-center fade-in-section">
+                <h2 class="font-dancing text-5xl text-[#6D8B74] mb-8">Konfirmasi Kehadiran</h2>
+                <form id="rsvp-form" class="bg-white p-8 rounded-lg shadow-lg text-left space-y-4">
+                    <div>
+                        <label for="name" class="block mb-2 font-semibold">Nama Anda</label>
+                        <input type="text" id="name" name="name" class="w-full p-2 border rounded-md" required>
+                    </div>
+                    <div>
+                        <label class="block mb-2 font-semibold">Konfirmasi Kehadiran</label>
+                        <select id="status" name="status" class="w-full p-2 border rounded-md">
+                            <option value="Hadir">Ya, saya akan hadir</option>
+                            <option value="Tidak Hadir">Maaf, tidak bisa hadir</option>
+                        </select>
+                    </div>
+                     <div>
+                        <label for="guests" class="block mb-2 font-semibold">Jumlah Tamu</label>
+                        <input type="number" id="guests" name="guests" value="1" min="1" max="2" class="w-full p-2 border rounded-md">
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <label for="message" class="block font-semibold">Ucapan & Doa</label>
+                            <button type="button" id="generate-wish-btn" class="text-sm text-[#6D8B74] hover:underline flex items-center gap-1">
+                                ✨ Buatkan Ucapan
+                            </button>
+                        </div>
+                        <textarea id="message" name="message" rows="4" class="w-full p-2 border rounded-md" placeholder="Tulis ucapan dan doa Anda di sini..." required></textarea>
+                        <p id="gemini-error" class="text-red-500 text-sm mt-1 hidden"></p>
+                    </div>
+                    <button type="submit" class="w-full mt-4 bg-[#6D8B74] hover:bg-[#557153] text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105">Kirim Konfirmasi</button>
+                </form>
+                <div id="rsvp-success" class="hidden mt-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg relative" role="alert">
+                    <strong class="font-bold">Terima kasih!</strong>
+                    <span class="block sm:inline"> Konfirmasi Anda telah kami terima.</span>
+                </div>
+            </div>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Wedding of Erna & Reza</p>
-  </footer>
+            <!-- Ucapan & Doa List -->
+            <div id="wishes-section" class="container mx-auto max-w-2xl text-center mt-12">
+                <h2 class="font-dancing text-5xl text-[#6D8B74] mb-8">Ucapan & Doa Restu</h2>
+                <div id="wishes-list" class="bg-white p-6 rounded-lg shadow-lg text-left space-y-4 max-h-96 overflow-y-auto">
+                    <!-- Wishes will be dynamically inserted here -->
+                    <p id="loading-wishes" class="text-center text-gray-500">Memuat ucapan...</p>
+                </div>
+            </div>
+        </section>
 
-  <!-- Audio -->
-  <audio id="bg-audio" autoplay loop preload="auto">
-    <source src="media/Bernaung (From Setetes Embun Cinta Niyala).mp3" type="audio/mpeg">
-  </audio>
+        <!-- Footer -->
+        <footer class="text-center py-12 px-4">
+            <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kedua mempelai.</p>
+            <p class="font-dancing text-3xl my-4">Reza & Erna</p>
+            <p class="text-sm text-gray-500 mt-8">Dibuat dengan ❤️</p>
+        </footer>
+    </main>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // !!! PENTING: GANTI URL DI BAWAH INI DENGAN URL WEB APP GOOGLE SCRIPT ANDA !!!
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxgu_JmVq8sA4h7YyrI7f-GiyETJvMSV23gAd9-9EVPGgi5YUPTJpkFdITbcDH05EoO/exec'; 
+            
+            const urlParams = new URLSearchParams(window.location.search);
+            const guest = urlParams.get('to') || 'Tamu Undangan';
+            document.getElementById('guest-name').textContent = guest.replace(/_/g, ' ');
 
-  <!-- JS -->
-  <script src="js/jquery.min.js"></script>
-  <script src="js/wow.min.js"></script>
-  <script>
-    new WOW().init();
+            const openButton = document.getElementById('open-invitation');
+            const cover = document.getElementById('cover');
+            const mainContent = document.getElementById('main-content');
+            const music = document.getElementById('background-music');
+            const musicControl = document.getElementById('music-control');
+            
+            openButton.addEventListener('click', function() {
+                cover.style.transition = 'opacity 1s, transform 1s';
+                cover.style.opacity = '0';
+                cover.style.transform = 'scale(1.1)';
+                setTimeout(() => cover.style.display = 'none', 1000);
 
-    // Countdown
-    const target = new Date("2025-04-06T09:00:00+07:00").getTime();
-    const timer = document.getElementById("timer");
-    setInterval(function(){
-      const now = new Date().getTime();
-      const distance = target - now;
-      if(distance < 0){
-        timer.innerHTML = "Acara telah dimulai!";
-        return;
-      }
-      const days = Math.floor(distance/(1000*60*60*24));
-      const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-      const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
-      const seconds = Math.floor((distance%(1000*60))/1000);
-      timer.innerHTML = `${days} Hari ${hours} Jam ${minutes} Menit ${seconds} Detik`;
-    },1000);
+                mainContent.style.display = 'block';
+                document.body.style.overflow = 'auto';
+                
+                music.play().catch(error => console.log("Autoplay dicegah oleh browser."));
+                musicControl.style.display = 'block';
 
-    // Video fallback
-    document.addEventListener("DOMContentLoaded", function () {
-      const video = document.getElementById("wedding-video");
-      const playButton = document.getElementById("playButton");
-      video.play().catch(() => {
-        playButton.style.display = "inline-block";
-      });
-      playButton.addEventListener("click", function () {
-        video.play();
-        playButton.style.display = "none";
-      });
-    });
-  </script>
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('fade-in-section');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                document.querySelectorAll('section > div').forEach(section => observer.observe(section));
+                getWishes();
+            });
+
+            const countdownDate = new Date("December 21, 2025 09:00:00").getTime();
+            const countdownFunction = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = countdownDate - now;
+
+                if (distance < 0) {
+                    clearInterval(countdownFunction);
+                    document.getElementById("countdown").innerHTML = "<div class='col-span-4'>Acara Telah Berlangsung</div>";
+                    return;
+                }
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                document.getElementById("days").innerText = String(days).padStart(2, '0');
+                document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+                document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+                document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+            }, 1000);
+
+            const rsvpForm = document.getElementById('rsvp-form');
+            const submitButton = rsvpForm.querySelector('button[type="submit"]');
+            rsvpForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                submitButton.disabled = true;
+                submitButton.textContent = 'Mengirim...';
+
+                fetch(scriptURL, { method: 'POST', body: new FormData(rsvpForm)})
+                    .then(response => {
+                        console.log('Success!', response);
+                        const rsvpSuccess = document.getElementById('rsvp-success');
+                        rsvpForm.style.display = 'none';
+                        rsvpSuccess.style.display = 'block';
+                        getWishes();
+                    })
+                    .catch(error => {
+                        console.error('Error!', error.message);
+                        alert("Maaf, terjadi kesalahan saat mengirim konfirmasi. Silakan coba lagi.");
+                        submitButton.disabled = false;
+                        submitButton.textContent = 'Kirim Konfirmasi';
+                    });
+            });
+            
+            // --- Gemini API Feature ---
+            const generateWishBtn = document.getElementById('generate-wish-btn');
+            const messageTextarea = document.getElementById('message');
+            const nameInput = document.getElementById('name');
+            const geminiError = document.getElementById('gemini-error');
+
+            generateWishBtn.addEventListener('click', generateWish);
+
+            async function generateWish() {
+                const guestName = nameInput.value.trim() || 'Sahabat';
+                const originalButtonText = generateWishBtn.innerHTML;
+                
+                generateWishBtn.disabled = true;
+                generateWishBtn.innerHTML = `
+                    <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-[#6D8B74]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Membuat...
+                `;
+                geminiError.classList.add('hidden');
+
+                const apiKey = ""; 
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+                const prompt = `Tuliskan sebuah ucapan dan doa pernikahan yang singkat (sekitar 2-3 kalimat), tulus, dan indah untuk pasangan bernama Reza dan Erna. Ucapan ini datang dari tamu mereka yang bernama ${guestName}. Gunakan bahasa Indonesia yang baik dan sopan. Jangan gunakan markdown.`;
+                const payload = { contents: [{ parts: [{ text: prompt }] }] };
+
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) throw new Error(`API request failed with status ${response.status}`);
+
+                    const result = await response.json();
+                    const candidate = result.candidates?.[0];
+
+                    if (candidate && candidate.content?.parts?.[0]?.text) {
+                        messageTextarea.value = candidate.content.parts[0].text.trim();
+                    } else {
+                        throw new Error('Gagal mendapatkan teks dari respons API.');
+                    }
+                } catch (error) {
+                    console.error("Error calling Gemini API:", error);
+                    geminiError.textContent = "Maaf, gagal membuat ucapan. Coba lagi nanti.";
+                    geminiError.classList.remove('hidden');
+                } finally {
+                    generateWishBtn.disabled = false;
+                    generateWishBtn.innerHTML = originalButtonText;
+                }
+            }
+
+            function getWishes() {
+                const wishesList = document.getElementById('wishes-list');
+                wishesList.innerHTML = '<p id="loading-wishes" class="text-center text-gray-500">Memuat ucapan...</p>';
+
+                fetch(scriptURL)
+                    .then(response => response.json())
+                    .then(data => {
+                        wishesList.innerHTML = '';
+                        if (data.records && data.records.length > 0) {
+                            data.records.forEach(wish => {
+                                const wishElement = document.createElement('div');
+                                wishElement.className = 'border-b pb-3 mb-3';
+                                wishElement.innerHTML = `
+                                    <div class="flex justify-between items-center flex-wrap">
+                                        <p class="font-bold text-[#557153]">${wish.Nama}</p>
+                                        <span class="text-xs ${wish.Status === 'Hadir' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'} px-2 py-1 rounded-full mt-1 sm:mt-0">${wish.Status === 'Hadir' ? `${wish.JumlahTamu} orang akan hadir` : 'Tidak Hadir'}</span>
+                                    </div>
+                                    <p class="mt-2 text-gray-600 italic">"${wish.Pesan}"</p>
+                                `;
+                                wishesList.appendChild(wishElement);
+                            });
+                        } else {
+                            wishesList.innerHTML = '<p class="text-center text-gray-500">Jadilah yang pertama mengirim ucapan!</p>';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching wishes:', error);
+                        wishesList.innerHTML = '<p class="text-center text-gray-500">Gagal memuat ucapan. Periksa kembali URL Script Anda.</p>';
+                    });
+            }
+        });
+        
+        function toggleMusic() {
+            const music = document.getElementById('background-music');
+            const icon = document.getElementById('music-icon');
+            if (music.paused) {
+                music.play();
+                icon.classList.add('music-icon-playing');
+            } else {
+                music.pause();
+                icon.classList.remove('music-icon-playing');
+            }
+        }
+
+        function copyToClipboard(elementId, button) {
+            const textToCopy = document.getElementById(elementId).innerText;
+            const tempInput = document.createElement('input');
+            document.body.appendChild(tempInput);
+            tempInput.value = textToCopy;
+            tempInput.select();
+            try {
+                document.execCommand('copy');
+                const originalText = button.innerText;
+                button.innerText = 'Berhasil Disalin!';
+                setTimeout(() => {
+                    button.innerText = originalText;
+                }, 2000);
+            } catch (err) {
+                console.error('Gagal menyalin: ', err);
+            }
+            document.body.removeChild(tempInput);
+        }
+
+    </script>
 </body>
 </html>
+
+
+
