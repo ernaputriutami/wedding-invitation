@@ -7,10 +7,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <style>
+        @import url('https://fonts.cdnfonts.com/css/layla-thuluth');
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Lora', serif;
             scroll-behavior: smooth;
         }
         .font-playfair {
@@ -18,6 +19,9 @@
         }
         .font-dancing {
             font-family: 'Dancing Script', cursive;
+        }
+        .font-layla {
+            font-family: 'Layla Thuluth', sans-serif;
         }
         /* Custom animation for fade-in effect */
         @keyframes fadeIn {
@@ -37,7 +41,7 @@
         }
     </style>
 </head>
-<body class="bg-[#F7F2E8] text-[#4A4A4A]">
+<body class="bg-[#FFF8F9] text-[#4A4A4A]">
 
     <!-- Audio Player -->
     <audio id="background-music" loop>
@@ -47,20 +51,20 @@
 
     <!-- Tombol Kontrol Musik -->
     <div id="music-control" class="hidden fixed bottom-5 right-5 z-50">
-        <button onclick="toggleMusic()" class="w-12 h-12 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center text-[#6D8B74] shadow-lg">
-            <svg id="music-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        <button onclick="toggleMusic()" class="w-12 h-12 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center text-[#8D9DB6] shadow-lg">
+            <svg id="music-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 a/24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
         </button>
     </div>
 
     <!-- Cover Undangan -->
-    <div id="cover" class="fixed inset-0 bg-cover bg-center bg-no-repeat flex flex-col justify-center items-center text-center text-white z-50" style="background-image: url('https://images.unsplash.com/photo-1523438994511-26b01b5594f7?q=80&w=1887&auto=format&fit=crop');">
+    <div id="cover" class="fixed inset-0 bg-cover bg-center bg-no-repeat flex flex-col justify-center items-center text-center text-white z-50" style="background-image: url('https://images.unsplash.com/photo-1595782782013-3142f483a5a4?q=80&w=1887&auto=format&fit=crop');">
         <div class="absolute inset-0 bg-black/50"></div>
         <div class="relative z-10 p-8 flex flex-col items-center">
             <h2 class="font-playfair text-xl tracking-wider">The Wedding Of</h2>
             <h1 class="font-dancing text-6xl md:text-8xl my-4">Reza & Erna</h1>
             <p class="mt-8 mb-2">Kepada Yth. Bapak/Ibu/Saudara/i</p>
             <p id="guest-name" class="text-2xl font-bold bg-white/20 px-4 py-2 rounded-lg">Nama Tamu</p>
-            <button id="open-invitation" class="mt-8 bg-[#6D8B74] hover:bg-[#557153] text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105 flex items-center gap-2">
+            <button id="open-invitation" class="mt-8 bg-[#8D9DB6] hover:bg-[#7488A1] text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105 flex items-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12c0-4.4-3.6-8-8-8s-8 3.6-8 8 3.6 8 8 8 8-3.6 8-8Z"/><path d="m9.5 14.5 5-2.5-5-2.5v5Z"/></svg>
                 Buka Undangan
             </button>
@@ -70,7 +74,7 @@
     <!-- Konten Utama (Awalnya tersembunyi) -->
     <main id="main-content" class="hidden">
         <!-- Hero Section -->
-        <section class="h-screen bg-cover bg-center bg-no-repeat flex flex-col justify-center items-center text-center text-white relative" style="background-image: url('https://images.unsplash.com/photo-1523438994511-26b01b5594f7?q=80&w=1887&auto=format&fit=crop');">
+        <section class="h-screen bg-cover bg-center bg-no-repeat flex flex-col justify-center items-center text-center text-white relative" style="background-image: url('https://images.unsplash.com/photo-1595782782013-3142f483a5a4?q=80&w=1887&auto=format&fit=crop');">
             <div class="absolute inset-0 bg-black/50"></div>
             <div class="relative z-10 fade-in-section">
                 <h2 class="font-playfair text-2xl tracking-wider">We Are Getting Married</h2>
@@ -79,25 +83,34 @@
             </div>
         </section>
 
+        <!-- Ayat Suci Al-Quran -->
+        <section class="py-20 px-4 text-center bg-[#FADADD]/30">
+            <div class="container mx-auto max-w-4xl fade-in-section">
+                <p dir="rtl" class="font-layla text-4xl mb-6 text-center leading-relaxed">أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ<br></p>
+                <p class="italic max-w-3xl mx-auto mb-4">“Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir.”</p>
+                <p class="font-semibold">(Q.S Ar-Rum : 21)</p>
+            </div>
+        </section>
+        
         <!-- Mempelai -->
         <section class="py-20 px-4 text-center">
             <div class="container mx-auto max-w-4xl fade-in-section">
-                 <h2 class="font-dancing text-5xl text-[#6D8B74] mb-4">Assalamu'alaikum warahmatullah wabarakatuh</h2>
+                 <h2 class="font-dancing text-5xl text-[#8D9DB6] mb-4">Assalamu'alaikum warahmatullah wabarakatuh</h2>
                 <p class="max-w-3xl mx-auto mb-12">Dengan memohon Rahmat & Ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan putra dan putri kami.</p>
                 
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div class="flex flex-col items-center">
-                        <img src="https://placehold.co/250x250/E8D5C4/6D8B74?text=Reza" alt="Mempelai Pria" class="w-48 h-48 rounded-full object-cover shadow-lg mb-4">
-                        <h3 class="font-dancing text-4xl text-[#6D8B74]">Reza Hafiz Pranajaya, S.Kel</h3>
-                        <p class="mt-2 font-semibold">Putra Pertama dari Pasangan</p>
-                        <p>Bapak Agung Prasojo & Ibu Estulah Jayati</p>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <img src="https://placehold.co/250x250/E8D5C4/6D8B74?text=Erna" alt="Mempelai Wanita" class="w-48 h-48 rounded-full object-cover shadow-lg mb-4">
-                        <h3 class="font-dancing text-4xl text-[#6D8B74]">Erna Putri Utami, S.Si</h3>
+                        <img src="https://placehold.co/250x250/FADADD/8D9DB6?text=Erna" alt="Mempelai Wanita" class="w-48 h-48 rounded-full object-cover shadow-lg mb-4">
+                        <h3 class="font-dancing text-4xl text-[#8D9DB6]">Erna Putri Utami, S.Si</h3>
                         <p class="mt-2 font-semibold">Putri Pertama dari Pasangan</p>
                         <p>Bapak Asep Sudrajat & Ibu Sari Ningrum</p>
                     </div>
+                    <div class="flex flex-col items-center">
+                        <img src="https://placehold.co/250x250/FADADD/8D9DB6?text=Reza" alt="Mempelai Pria" class="w-48 h-48 rounded-full object-cover shadow-lg mb-4">
+                        <h3 class="font-dancing text-4xl text-[#8D9DB6]">Reza Hafiz Pranajaya, S.Kel</h3>
+                        <p class="mt-2 font-semibold">Putra Pertama dari Pasangan</p>
+                        <p>Bapak Agung Prasojo & Ibu Estulah Jayati</p>
+                    </div>                    
                 </div>
             </div>
         </section>
@@ -105,17 +118,17 @@
         <!-- Detail Acara -->
         <section id="acara" class="py-20 px-4 bg-cover bg-center" style="background-image: url('https://www.toptal.com/designers/subtlepatterns/uploads/leaves.png');">
             <div class="container mx-auto max-w-4xl text-center fade-in-section">
-                <h2 class="font-dancing text-5xl text-[#6D8B74] mb-12">Detail Acara</h2>
+                <h2 class="font-dancing text-5xl text-[#8D9DB6] mb-12">Detail Acara</h2>
                 <div class="grid md:grid-cols-2 gap-8">
                     <div class="bg-white/80 backdrop-blur-sm p-8 rounded-lg shadow-lg">
-                        <h3 class="font-playfair text-3xl font-bold text-[#557153]">Akad Nikah</h3>
+                        <h3 class="font-playfair text-3xl font-bold text-[#7488A1]">Akad Nikah</h3>
                         <p class="mt-4 mb-2 text-lg font-semibold">Minggu, 21 Desember 2025</p>
                         <p>Pukul 09:00 - 11:00 WIB</p>
                         <p class="mt-4 font-semibold">Gedung Widaria Kencana Sukabumi</p>
                         <p>Jl. Lkr. Sel., Sukakarya, Kec. Warudoyong, Kota Sukabumi, Jawa Barat 43135</p>
                     </div>
                     <div class="bg-white/80 backdrop-blur-sm p-8 rounded-lg shadow-lg">
-                        <h3 class="font-playfair text-3xl font-bold text-[#557153]">Resepsi</h3>
+                        <h3 class="font-playfair text-3xl font-bold text-[#7488A1]">Resepsi</h3>
                         <p class="mt-4 mb-2 text-lg font-semibold">Minggu, 21 Desember 2025</p>
                         <p>Pukul 11:00 - 14:00 WIB</p>
                         <p class="mt-4 font-semibold">Gedung Widaria Kencana Sukabumi</p>
@@ -135,20 +148,20 @@
         <!-- Peta Lokasi -->
         <section class="py-20 px-4 text-center">
              <div class="container mx-auto max-w-4xl fade-in-section">
-                 <h2 class="font-dancing text-5xl text-[#6D8B74] mb-8">Peta Lokasi</h2>
+                 <h2 class="font-dancing text-5xl text-[#8D9DB6] mb-8">Peta Lokasi</h2>
                  <div class="w-full h-96 rounded-lg shadow-lg overflow-hidden">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.6566567505242!2d106.89930487499659!3d-6.931577693068283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6837dd201b96df%3A0x7654148d7d645730!2sGedung%20Widaria%20Kencana%20Sukabumi!5e0!3m2!1sid!2sid!4v1759907495004!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                  </div>
-                 <a href="https://maps.app.goo.gl/wYgK889MRWU26DY87" target="_blank" class="inline-block mt-8 bg-[#6D8B74] hover:bg-[#557153] text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105">
+                 <a href="https://maps.app.goo.gl/wYgK889MRWU26DY87" target="_blank" class="inline-block mt-8 bg-[#8D9DB6] hover:bg-[#7488A1] text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105">
                      Buka di Google Maps
                 </a>
             </div>
         </section>
         
         <!-- Hadiah -->
-        <section id="hadiah" class="py-20 px-4 bg-white/50">
+        <section id="hadiah" class="py-20 px-4 bg-[#FADADD]/30">
             <div class="container mx-auto max-w-4xl text-center fade-in-section">
-                <h2 class="font-dancing text-5xl text-[#6D8B74] mb-4">Kirim Hadiah</h2>
+                <h2 class="font-dancing text-5xl text-[#8D9DB6] mb-4">Kirim Hadiah</h2>
                 <p class="max-w-2xl mx-auto mb-12">Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika memberi adalah ungkapan tanda kasih, Anda dapat memberi kado secara cashless.</p>
                 <div class="grid md:grid-cols-2 gap-8 text-left">
                     <div class="bg-white p-6 rounded-lg shadow-md">
@@ -170,7 +183,7 @@
         <!-- RSVP -->
         <section class="py-20 px-4">
             <div class="container mx-auto max-w-2xl text-center fade-in-section">
-                <h2 class="font-dancing text-5xl text-[#6D8B74] mb-8">Konfirmasi Kehadiran</h2>
+                <h2 class="font-dancing text-5xl text-[#8D9DB6] mb-8">Konfirmasi Kehadiran</h2>
                 <form id="rsvp-form" class="bg-white p-8 rounded-lg shadow-lg text-left space-y-4">
                     <div>
                         <label for="name" class="block mb-2 font-semibold">Nama Anda</label>
@@ -190,14 +203,14 @@
                     <div>
                         <div class="flex justify-between items-center mb-2">
                             <label for="message" class="block font-semibold">Ucapan & Doa</label>
-                            <button type="button" id="generate-wish-btn" class="text-sm text-[#6D8B74] hover:underline flex items-center gap-1">
+                            <button type="button" id="generate-wish-btn" class="text-sm text-[#8D9DB6] hover:underline flex items-center gap-1">
                                 ✨ Buatkan Ucapan
                             </button>
                         </div>
                         <textarea id="message" name="message" rows="4" class="w-full p-2 border rounded-md" placeholder="Tulis ucapan dan doa Anda di sini..." required></textarea>
                         <p id="gemini-error" class="text-red-500 text-sm mt-1 hidden"></p>
                     </div>
-                    <button type="submit" class="w-full mt-4 bg-[#6D8B74] hover:bg-[#557153] text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105">Kirim Konfirmasi</button>
+                    <button type="submit" class="w-full mt-4 bg-[#8D9DB6] hover:bg-[#7488A1] text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105">Kirim Konfirmasi</button>
                 </form>
                 <div id="rsvp-success" class="hidden mt-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg relative" role="alert">
                     <strong class="font-bold">Terima kasih!</strong>
@@ -207,7 +220,7 @@
 
             <!-- Ucapan & Doa List -->
             <div id="wishes-section" class="container mx-auto max-w-2xl text-center mt-12">
-                <h2 class="font-dancing text-5xl text-[#6D8B74] mb-8">Ucapan & Doa Restu</h2>
+                <h2 class="font-dancing text-5xl text-[#8D9DB6] mb-8">Ucapan & Doa Restu</h2>
                 <div id="wishes-list" class="bg-white p-6 rounded-lg shadow-lg text-left space-y-4 max-h-96 overflow-y-auto">
                     <!-- Wishes will be dynamically inserted here -->
                     <p id="loading-wishes" class="text-center text-gray-500">Memuat ucapan...</p>
@@ -218,7 +231,7 @@
         <!-- Footer -->
         <footer class="text-center py-12 px-4">
             <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kedua mempelai.</p>
-            <p class="font-dancing text-3xl my-4">Reza & Erna</p>
+            <p class="font-dancing text-3xl my-4">Erna & Reza</p>
             <p class="text-sm text-gray-500 mt-8">Dibuat dengan ❤️</p>
         </footer>
     </main>
@@ -321,7 +334,7 @@
                 
                 generateWishBtn.disabled = true;
                 generateWishBtn.innerHTML = `
-                    <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-[#6D8B74]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-[#8D9DB6]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
@@ -375,7 +388,7 @@
                                 wishElement.className = 'border-b pb-3 mb-3';
                                 wishElement.innerHTML = `
                                     <div class="flex justify-between items-center flex-wrap">
-                                        <p class="font-bold text-[#557153]">${wish.Nama}</p>
+                                        <p class="font-bold text-[#7488A1]">${wish.Nama}</p>
                                         <span class="text-xs ${wish.Status === 'Hadir' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'} px-2 py-1 rounded-full mt-1 sm:mt-0">${wish.Status === 'Hadir' ? `${wish.JumlahTamu} orang akan hadir` : 'Tidak Hadir'}</span>
                                     </div>
                                     <p class="mt-2 text-gray-600 italic">"${wish.Pesan}"</p>
@@ -427,3 +440,4 @@
     </script>
 </body>
 </html>
+
