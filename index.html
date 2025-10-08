@@ -39,13 +39,26 @@
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
+        /* Style for background video */
+        #hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 0;
+            transform: translateX(-50%) translateY(-50%);
+            object-fit: cover;
+        }
     </style>
 </head>
 <body class="bg-[#FFF8F9] text-[#4A4A4A]">
 
     <!-- Audio Player -->
     <audio id="background-music" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        <source src="https://raw.githubusercontent.com/ernaputriutami/wedding-invitation/main/media/Bernaung%20(From%20Setetes%20Embun%20Cinta%20Niyala).mp3" type="audio/mpeg">
         Browser Anda tidak mendukung elemen audio.
     </audio>
 
@@ -74,7 +87,11 @@
     <!-- Konten Utama (Awalnya tersembunyi) -->
     <main id="main-content" class="hidden">
         <!-- Hero Section -->
-        <section class="h-screen bg-cover bg-center bg-no-repeat flex flex-col justify-center items-center text-center text-white relative" style="background-image: url('https://raw.githubusercontent.com/ernaputriutami/wedding-invitation/main/images/COVER.svg');">
+        <section class="h-screen flex flex-col justify-center items-center text-center text-white relative overflow-hidden">
+             <video autoplay loop muted playsinline id="hero-video" poster="https://raw.githubusercontent.com/ernaputriutami/wedding-invitation/main/images/COVER.svg">
+                <source src="https://raw.githubusercontent.com/ernaputriutami/wedding-invitation/main/media/Video-Art-Modern-Java-Compress.mp4" type="video/mp4">
+                Browser Anda tidak mendukung tag video.
+            </video>
             <div class="absolute inset-0 bg-black/50"></div>
             <div class="relative z-10 fade-in-section">
                 <h2 class="font-playfair text-2xl tracking-wider">We Are Getting Married</h2>
@@ -86,7 +103,7 @@
         <!-- Ayat Suci Al-Quran -->
         <section class="py-20 px-4 text-center bg-[#FADADD]/30">
             <div class="container mx-auto max-w-4xl fade-in-section">
-                <p dir="rtl" class="font-layla text-4xl mb-6 text-center leading-relaxed">أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ<br></p>
+                <p dir="rtl" class="font-layla text-3xl text-[#7488A1] mb-6 text-center leading-relaxed">أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ<br></p>
                 <p class="italic max-w-3xl mx-auto mb-4">“Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir.”</p>
                 <p class="font-semibold">(Q.S Ar-Rum : 21)</p>
             </div>
@@ -95,7 +112,7 @@
         <!-- Mempelai -->
         <section class="py-20 px-4 text-center">
             <div class="container mx-auto max-w-4xl fade-in-section">
-                 <h2 class="font-dancing text-5xl text-[#8D9DB6] mb-4">Assalamu'alaikum warahmatullah wabarakatuh</h2>
+                 <h2 class="font-dancing text-3xl text-[#8D9DB6] mb-4">Assalamu'alaikum warahmatullah wabarakatuh</h2>
                 <p class="max-w-3xl mx-auto mb-12">Dengan memohon Rahmat & Ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan putra dan putri kami.</p>
                 
                 <div class="grid md:grid-cols-2 gap-12 items-center">
@@ -198,7 +215,10 @@
                     </div>
                      <div>
                         <label for="guests" class="block mb-2 font-semibold">Jumlah Tamu</label>
-                        <input type="number" id="guests" name="guests" value="1" min="1" max="2" class="w-full p-2 border rounded-md">
+                        <select id="guests" name="guests" class="w-full p-2 border rounded-md bg-white">
+                            <option value="1">1 orang</option>
+                            <option value="2">2 orang</option>
+                        </select>
                     </div>
                     <div>
                         <div class="flex justify-between items-center mb-2">
