@@ -64,20 +64,17 @@
 </head>
 <body class="bg-[#FFF8F9] text-[#4A4A4A]">
 
-    <!-- Audio Player -->
     <audio id="background-music" loop>
         <source src="https://raw.githubusercontent.com/ernaputriutami/wedding-invitation/main/media/Bernaung%20(From%20Setetes%20Embun%20Cinta%20Niyala).mp3" type="audio/mpeg">
         Browser Anda tidak mendukung elemen audio.
     </audio>
 
-    <!-- Tombol Kontrol Musik -->
     <div id="music-control" class="hidden fixed bottom-5 right-5 z-50">
         <button onclick="toggleMusic()" class="w-12 h-12 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center text-[#8D9DB6] shadow-lg">
             <svg id="music-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
         </button>
     </div>
 
-    <!-- Cover Undangan -->
     <div id="cover" class="fixed inset-0 bg-cover bg-center bg-no-repeat flex flex-col justify-center items-center text-center text-white z-50" style="background-image: url('https://raw.githubusercontent.com/ernaputriutami/wedding-invitation/main/images/COVER.svg');">
         <div class="absolute inset-0 bg-black/50"></div>
         <div class="relative z-10 p-8 flex flex-col items-center">
@@ -92,9 +89,7 @@
         </div>
     </div>
 
-    <!-- Konten Utama (Awalnya tersembunyi) -->
     <main id="main-content" class="hidden">
-        <!-- Hero Section -->
         <section class="h-screen flex flex-col justify-center items-center text-center text-white relative overflow-hidden">
              <video autoplay loop muted playsinline id="hero-video" poster="https://raw.githubusercontent.com/ernaputriutami/wedding-invitation/main/images/COVER.svg">
                 <source src="https://raw.githubusercontent.com/ernaputriutami/wedding-invitation/main/media/Video-Art-Modern-Java-Compress.mp4" type="video/mp4">
@@ -108,7 +103,6 @@
             </div>
         </section>
 
-        <!-- Ayat Suci Al-Quran -->
         <section class="py-20 px-4 text-center bg-[#FADADD]/30">
             <div class="container mx-auto max-w-4xl">
                 <p dir="rtl" class="font-layla text-3xl text-[#7488A1] mb-6 text-center leading-relaxed animate-scroll">أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ<br></p>
@@ -117,30 +111,28 @@
             </div>
         </section>
         
-        <!-- Mempelai -->
         <section class="py-20 px-4 text-center bg-cover bg-center" style="background-image: url('https://raw.githubusercontent.com/ernaputriutami/wedding-invitation/main/images/DESIGN-TEMA-JAWA-EL-VB.jpg');">
             <div class="container mx-auto max-w-4xl bg-white/30 backdrop-blur-sm p-8 rounded-lg">
-                 <h2 class="font-dancing text-3xl text-[#1e4b5c] mb-4 animate-scroll">Assalamu'alaikum warahmatullah wabarakatuh</h2>
+                 <h2 class="font-dancing text-2xl text-[#1e4b5c] mb-4 animate-scroll">Assalamu'alaikum warahmatullah wabarakatuh</h2>
                 <p class="max-w-3xl mx-auto mb-12 animate-scroll delay-1">Dengan memohon Rahmat & Ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan putra dan putri kami.</p>
                 
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div class="flex flex-col items-center animate-scroll delay-2">
                         <img src="https://raw.githubusercontent.com/ernaputriutami/wedding-invitation/main/images/wn-anime.png" alt="Mempelai Wanita" class="w-48 h-48 rounded-full object-cover shadow-lg mb-4">
-                        <h3 class="font-dancing text-4xl text-[#1e4b5c]">Erna Putri Utami, S.Si</h3>
+                        <h3 class="font-dancing text-3xl text-[#1e4b5c]">Erna Putri Utami, S.Si</h3>
                         <p class="mt-2 font-semibold">Putri Pertama dari Pasangan</p>
                         <p>Bapak Asep Sudrajat & Ibu Sari Ningrum</p>
                     </div>
                     <div class="flex flex-col items-center animate-scroll delay-3">
                         <img src="https://raw.githubusercontent.com/ernaputriutami/wedding-invitation/main/images/lk-anime.png" alt="Mempelai Pria" class="w-48 h-48 rounded-full object-cover shadow-lg mb-4">
-                        <h3 class="font-dancing text-4xl text-[#1e4b5c]">Reza Hafiz Pranajaya, S.Kel</h3>
+                        <h3 class="font-dancing text-3xl text-[#1e4b5c]">Reza Hafiz Pranajaya, S.Kel</h3>
                         <p class="mt-2 font-semibold">Putra Pertama dari Pasangan</p>
                         <p>Bapak Agung Prasojo & Ibu Estulah Jayati</p>
-                    </div>                    
+                    </div>                      
                 </div>
             </div>
         </section>
         
-        <!-- Detail Acara -->
         <section id="acara" class="py-20 px-4 bg-cover bg-center" style="background-image: url('https://raw.githubusercontent.com/ernaputriutami/wedding-invitation/main/images/DESIGN-TEMA-JAWA-EL-VB.jpg');">
             <div class="container mx-auto max-w-4xl text-center">
                 <h2 class="font-dancing text-5xl text-[#1e4b5c] mb-12 animate-scroll">Detail Acara</h2>
@@ -160,7 +152,6 @@
                         <p>Jl. Lkr. Sel., Sukakarya, Kec. Warudoyong, Kota Sukabumi, Jawa Barat 43135</p>
                     </div>
                 </div>
-                <!-- Countdown Timer -->
                 <div id="countdown" class="mt-12 text-2xl font-bold grid grid-cols-4 gap-4 max-w-lg mx-auto animate-scroll delay-3">
                     <div class="bg-white/80 p-4 rounded-lg shadow-md"><span id="days">00</span><p class="text-sm font-normal">Hari</p></div>
                     <div class="bg-white/80 p-4 rounded-lg shadow-md"><span id="hours">00</span><p class="text-sm font-normal">Jam</p></div>
@@ -170,7 +161,6 @@
             </div>
         </section>
 
-        <!-- Peta Lokasi -->
         <section class="py-20 px-4 text-center">
              <div class="container mx-auto max-w-4xl">
                  <h2 class="font-dancing text-5xl text-[#8D9DB6] mb-8 animate-scroll">Peta Lokasi</h2>
@@ -183,20 +173,19 @@
             </div>
         </section>
         
-        <!-- Hadiah -->
         <section id="hadiah" class="py-20 px-4 bg-[#FADADD]/30">
             <div class="container mx-auto max-w-4xl text-center">
                 <h2 class="font-dancing text-5xl text-[#8D9DB6] mb-4 animate-scroll">Kirim Hadiah</h2>
                 <p class="max-w-2xl mx-auto mb-12 animate-scroll delay-1">Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika memberi adalah ungkapan tanda kasih, Anda dapat memberi kado secara cashless.</p>
                 <div class="grid md:grid-cols-2 gap-8 text-left">
                     <div class="bg-white p-6 rounded-lg shadow-md animate-scroll delay-2">
-                        <h3 class="font-semibold text-lg flex items-center gap-2"><img src="https://raw.githubusercontent.com/ernaputriutami/wedding-invitation/main/images/iconmandiri-1.png" class="h-6" alt="Logo Mandiri"> Bank Mandiri</h3>
+                        <h3 class="font-semibold text-lg flex items-center gap-2"><img src="https://raw.githubusercontent.com/ernaputriutami/wedding-invitation/main/images/iconmandiri-1.png" class="h-6" alt="Logo Bank Mandiri"> Bank Mandiri</h3>
                         <p class="mt-2 text-gray-500">a.n. Erna Putri Utami</p>
                         <p id="mandiri-account" class="text-xl font-bold">1270010070157</p>
                         <button onclick="copyToClipboard('mandiri-account', this)" class="mt-2 text-sm bg-gray-200 px-3 py-1 rounded-full">Salin Nomor</button>
                     </div>
                     <div class="bg-white p-6 rounded-lg shadow-md animate-scroll delay-3">
-                        <h3 class="font-semibold text-lg flex items-center gap-2"><img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg" class="h-5" alt="Logo DANA"> DANA</h3>
+                        <h3 class="font-semibold text-lg flex items-center gap-2"><img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg" class="h-5" alt="Logo DANA E-Wallet"> DANA</h3>
                         <p class="mt-2 text-gray-500">a.n. Reza Hafiz Pranajaya</p>
                         <p id="dana-account" class="text-xl font-bold">085695496600</p>
                         <button onclick="copyToClipboard('dana-account', this)" class="mt-2 text-sm bg-gray-200 px-3 py-1 rounded-full">Salin Nomor</button>
@@ -205,7 +194,6 @@
             </div>
         </section>
 
-        <!-- RSVP -->
         <section class="py-20 px-4">
             <div class="container mx-auto max-w-2xl text-center">
                 <h2 class="font-dancing text-5xl text-[#8D9DB6] mb-8 animate-scroll">Konfirmasi Kehadiran</h2>
@@ -244,19 +232,21 @@
                     <strong class="font-bold">Terima kasih!</strong>
                     <span class="block sm:inline"> Konfirmasi Anda telah kami terima.</span>
                 </div>
+                <!-- IMPROVEMENT: Added a dedicated error message container instead of using alert() -->
+                <div id="rsvp-error" class="hidden mt-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg relative" role="alert">
+                    <strong class="font-bold">Oops!</strong>
+                    <span class="block sm:inline"> Terjadi kesalahan saat mengirim konfirmasi. Silakan coba lagi.</span>
+                </div>
             </div>
 
-            <!-- Ucapan & Doa List -->
             <div id="wishes-section" class="container mx-auto max-w-2xl text-center mt-12 animate-scroll delay-2">
                 <h2 class="font-dancing text-5xl text-[#8D9DB6] mb-8">Ucapan & Doa Restu</h2>
                 <div id="wishes-list" class="bg-white p-6 rounded-lg shadow-lg text-left space-y-4 max-h-96 overflow-y-auto">
-                    <!-- Wishes will be dynamically inserted here -->
                     <p id="loading-wishes" class="text-center text-gray-500">Memuat ucapan...</p>
                 </div>
             </div>
         </section>
 
-        <!-- Footer -->
         <footer class="text-center py-12 px-4">
             <p class="animate-scroll">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kedua mempelai.</p>
             <p class="font-dancing text-3xl my-4 animate-scroll delay-1">Erna & Reza</p>
@@ -287,11 +277,12 @@
             let heroAnimationTriggered = false;
 
             video.addEventListener('timeupdate', function() {
-                if (video.currentTime >= 11 && !heroAnimationTriggered) {
+                // Timestamp diubah menjadi 7 detik agar lebih cepat
+                if (video.currentTime >= 7 && !heroAnimationTriggered) { 
                     heroH2.classList.add('is-visible');
                     heroH1.classList.add('is-visible');
                     heroP.classList.add('is-visible');
-                    heroAnimationTriggered = true; // Prevents the code from running again
+                    heroAnimationTriggered = true; 
                 }
             });
 
@@ -303,6 +294,10 @@
 
                 mainContent.style.display = 'block';
                 document.body.style.overflow = 'auto';
+                
+                // Mengatur kecepatan putar video menjadi 1.5x lebih cepat
+                const video = document.getElementById('hero-video');
+                video.playbackRate = 1.5; 
                 
                 music.play().catch(error => console.log("Autoplay dicegah oleh browser."));
                 musicControl.style.display = 'block';
@@ -348,6 +343,9 @@
             rsvpForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
+                // IMPROVEMENT: Hide previous error message on new submission
+                document.getElementById('rsvp-error').style.display = 'none';
+
                 submitButton.disabled = true;
                 submitButton.textContent = 'Mengirim...';
 
@@ -361,7 +359,9 @@
                     })
                     .catch(error => {
                         console.error('Error!', error.message);
-                        alert("Maaf, terjadi kesalahan saat mengirim konfirmasi. Silakan coba lagi.");
+                        // IMPROVEMENT: Replaced alert() with a non-blocking UI element for better UX
+                        const rsvpError = document.getElementById('rsvp-error');
+                        rsvpError.style.display = 'block';
                         submitButton.disabled = false;
                         submitButton.textContent = 'Kirim Konfirmasi';
                     });
@@ -389,7 +389,7 @@
                 `;
                 geminiError.classList.add('hidden');
 
-                const apiKey = ""; 
+                const apiKey = ""; // API Key will be handled by the environment.
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
                 const prompt = `Tuliskan sebuah ucapan dan doa pernikahan yang singkat (sekitar 2-3 kalimat), tulus, dan indah untuk pasangan bernama Reza dan Erna. Ucapan ini datang dari tamu mereka yang bernama ${guestName}. Gunakan bahasa Indonesia yang baik dan sopan. Jangan gunakan markdown.`;
                 const payload = { contents: [{ parts: [{ text: prompt }] }] };
@@ -487,4 +487,3 @@
     </script>
 </body>
 </html>
-
